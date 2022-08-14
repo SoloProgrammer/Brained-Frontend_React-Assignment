@@ -18,6 +18,18 @@ const Profile = () => {
 
   const { update_profile_image, update_profile_data, setuserdetail, delete_profile_image, getuser_detail, userdetail, load } = Gstate
 
+  function Toast_Error(msg){
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   useEffect(() => {
     getuser_detail()
   }, [])
@@ -75,16 +87,8 @@ const Profile = () => {
     }
 
     console.log("plz choose one image file")
-    toast.error("plz choose atleast one image file", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-  });
-  Handle_cancel()
+    Toast_Error("plz choose atleast one image file")
+    Handle_cancel()
   }
 
   const Confirm = (avatar) => {
@@ -124,6 +128,13 @@ const Profile = () => {
   const Handle_save = () => {
 
     const { avatar, _id, updatedAt, createdAt, ...rest } = userdetail
+
+    if (userdetail.fname.length < 1) {
+      return Toast_Error("Name should not blank")
+    }
+    if (userdetail.email.length < 1) {
+      return Toast_Error("Email is manditory")
+    }
 
     update_profile_data(rest)
     setisEdit(false)

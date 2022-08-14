@@ -21,7 +21,7 @@ const Notes_table = ({ notes,popup_up_box,Deletenote }) => {
           return <tr>
             <th scope="row">{index + 1}</th>
             <td>{note.title}</td>
-            <td>{note.description}</td>
+            <td style={{width:"24rem"}}>{note.description}</td>
             <td>{note.tag}</td>
             <td className='action_btns'>
               <button onClick={()=>{popup_up_box(note)}} className='btn btn-primary mx-1'>Edit</button>

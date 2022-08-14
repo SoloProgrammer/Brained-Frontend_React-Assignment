@@ -69,7 +69,7 @@ const Global_States_Actions = (props) => {
   const update_profile_image = async (image_form) => {
 
     setload(true)
-    const res = await fetch(`/api/updateProfile/new_avatar`,
+    const res = await fetch(`/api/updateProfile/${userdetail.avatar.length > 0 ? userdetail.avatar : "new_avatar"}`,
       {
         method: 'PUT',
         headers: {
