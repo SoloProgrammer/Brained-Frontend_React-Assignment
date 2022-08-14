@@ -1,0 +1,185 @@
+.brand_name {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 2.8rem;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgb(66, 188, 249);
+  color: white;
+  border-radius: .4rem;
+  padding: .2em .5em;
+  z-index: 299;
+
+}
+
+.task_head {
+  display: flex;
+  justify-content: flex-end;
+  padding: .3em .6em;
+}
+
+
+.m_t_3 {
+  margin-top: 3rem;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0 0 0 / 40%);
+  z-index: 9999999;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup_box {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  background: white;
+  padding: .7em .9em;
+  border-radius: .4em;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.come {
+  opacity: 1;
+  top: 5.2%;
+  pointer-events: all;
+}
+
+.popup_box h3 span:nth-child(2) {
+  position: absolute;
+
+  right: -.5em;
+  font-weight: 200;
+  top: -.5em;
+  padding: .2em .5em;
+  border: 1px solid rgb(0 0 0 / 45%);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+
+}
+
+.notes_data_table {
+  margin-bottom: 3rem;
+}
+tbody, td, tfoot, th, thead, tr {
+  text-align: center;
+}
+
+.task_head .right {
+ display: flex;
+ gap: 2rem;
+ align-items: center;
+}
+
+.task_head .right .user_icon{position: relative;}
+.task_head .right .user_icon .image{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.task_head .right .user_icon .Uname{
+  position: absolute;
+  bottom: -2rem;
+  width: 7rem;
+  right: 50%;
+  transform: translateX(50%);
+  background:#19e0ff;
+  background:rgb(105, 104, 104);
+  color: white;
+  font-size: .8em;
+  padding: .1rem .2rem;
+  display: flex;
+  justify-content: center;
+  border-radius: .5em;
+  font-weight: 500;
+
+}
+
+.task_head .right .user_icon .Uname::before{
+  content: "";
+  position: absolute;
+  top: -4px;
+  transform: rotate(45deg);
+  width: 10px ;
+  height: 10px ;
+  background:rgb(105, 104, 104);
+  z-index: -1;
+}
+
+.task_head .right .user_icon .image img {
+  object-fit: cover;
+  height: 100%;
+  width: 45px;
+}
+.action_btns button {
+  width: 30%;
+}
+
+
+@media (max-width:1100px) {
+  .popup_box {
+    width: 65%;
+  }
+}
+
+
+@media (max-width:800px) {
+  .brand_name {
+    font-size: 1.7em;
+  }
+
+  .action_btns button{
+
+    width: 100%;
+  }
+  
+  .action_btns {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+  }
+}
+
+@media (max-width:600px) {
+  .come {
+    top: 1.2%;
+  }
+
+  .popup_box {
+    width: 97%;
+  }
+
+  .popup_box h3 span:nth-child(2) {
+    border: none;
+    right: 0;
+    top: 0;
+  }
+  .task_head .right .user_icon .image{
+    width: 40px;
+    height: 40px;
+  }
+  .task_head .right .user_icon .image img {
+    width: 40px;
+  }
+}
